@@ -1,6 +1,6 @@
 import React from 'react';
 import Logo from 'components/Logo';
-import SearchInput from 'components/SearchInput';
+import SearchInput from 'containers/SearchInput';
 
 const Header = () => (
   <section className="header">
