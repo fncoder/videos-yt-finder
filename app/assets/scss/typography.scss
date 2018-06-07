@@ -1,0 +1,13 @@
+h1{
+font-size: 28px;
+font-weight: 600;
+}
+
+.text-red{
+color: #DD2826;
+}
+
+p{
+--p--Color: var(--global--font--Color);
+color: var(--p--Color, #666);
+}
