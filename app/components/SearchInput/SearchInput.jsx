@@ -3,6 +3,7 @@ import React from 'react';
 const SearchInput = () => (
   <div className="search">
     <input type="text" className="input-search" placeholder="Search Youtube" />
+    <button type="button" className="btn btn--search"><i className="fas fa-search" /></button>
   </div>
 );
 
