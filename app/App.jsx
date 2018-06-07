@@ -2,9 +2,9 @@ import React from 'react';
 import Header from 'components/Header';
 
 const App = () => (
-  <React.Fragment>
+  <div className="container">
     <Header />
-  </React.Fragment>
+  </div>
 );
 
 export default App;
