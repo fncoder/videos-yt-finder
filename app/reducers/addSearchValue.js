@@ -1,13 +1,13 @@
 import { ADD_SEARCH_VALUE } from 'constants/actionTypes.js';
 
 const addSearchValue = (state, action) => {
-  if(state === undefined){
-    return ''
+  if (state === undefined) {
+    return '';
   }
 
-  switch(action.type){
+  switch (action.type) {
     case ADD_SEARCH_VALUE:
-      return value;
+      return action.payload;
     default:
       return state;
   }
