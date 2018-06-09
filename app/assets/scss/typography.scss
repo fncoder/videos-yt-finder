@@ -11,3 +11,12 @@ p{
 --p--Color: var(--global--font--Color);
 color: var(--p--Color, #666);
 }
+
+ul,li{
+list-style-type: none;
+}
+
+img{
+display: block;
+max-width: 100%;
+}
