@@ -1,5 +1,5 @@
 import React from 'react';
-import Videos from 'components/Videos';
+import Videos from 'containers/Videos';
 
 const Main = () => (
   <main className="main">

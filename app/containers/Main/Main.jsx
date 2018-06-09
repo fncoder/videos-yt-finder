@@ -1,12 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { fetchVideos } from 'api';
-import App from 'App.jsx';
+import Main from 'components/Main';
 
-class AppContainer extends React.Component {
+class MainContainer extends React.Component {
   render() {
     return (
-      <App />
+      <Main />
     );
   }
 
@@ -16,8 +16,9 @@ class AppContainer extends React.Component {
   }
 }
 
-const mapStateToProps = dispatch => ({
+
+const mapDispatchToProps = dispatch => ({
   fetchVideos: () => dispatch(fetchVideos()),
 });
 
-export default connect(null, mapStateToProps)(AppContainer);
+export default connect(null, mapDispatchToProps)(MainContainer);
