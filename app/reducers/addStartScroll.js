@@ -6,7 +6,10 @@ const addStartScroll = (state, action) => {
   }
   switch (action.type) {
     case ADD_START_SCROLL:
-      return action.payload;
+      if (action.payload === 635) {
+        return 635;
+      }
+      return state + action.payload;
     default:
       return state;
   }

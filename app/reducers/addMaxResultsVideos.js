@@ -6,7 +6,10 @@ const addMaxResultsVideos = (state, action) => {
   }
   switch (action.type) {
     case ADD_MAX_RESULTS_VIDEOS:
-      return action.payload;
+      if (action.payload === 20) {
+        return 20;
+      }
+      return state + action.payload;
     default:
       return state;
   }
