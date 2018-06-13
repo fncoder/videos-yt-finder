@@ -1,0 +1,36 @@
+.navigate{
+position: relative;
+width: 50px;
+}
+
+.wrapper--navigate{
+position: fixed;
+padding-left: 30px;
+display: flex;
+flex-direction: column;
+}
+
+.arrows{
+color: #cccccc;
+font-size: 18px;
+font-weight: 300;
+cursor: pointer;
+}
+
+.arrow-left{
+margin-top: 6px;
+
+  &:before{
+  content: '\f060';
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  }
+}
+
+.arrow-right{
+  &:before{
+  content: '\f061';
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  }
+}
