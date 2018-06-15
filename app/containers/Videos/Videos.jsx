@@ -22,6 +22,12 @@ class VideosContainer extends React.Component {
   }
 
   render() {
+    const playerVideo = document.querySelectorAll('.playerVideo');
+
+    for (let i = 0; i < playerVideo.length; i++) {
+      playerVideo[i].style.display = 'none';
+    }
+
     const { items } = this.props;
     return (
       <Videos

@@ -2,11 +2,11 @@ import React from 'react';
 import SingleVideo from 'components/SingleVideo';
 
 const Videos = ({ items, onClick }) => {
-  let itemsList = [];
+  let videoList = [];
 
   if (items) {
     console.log(items);
-    itemsList = items.map((value, index) => (
+    videoList = items.map((value, index) => (
       <li onClick={onClick} id={index + 1} className={`video video${index + 1}`}>
         <div className="video-content">
           <figure onClick={onClick} className="video-media">
@@ -24,7 +24,7 @@ const Videos = ({ items, onClick }) => {
   }
   return (
     <div className="video-list">
-      {itemsList}
+      {videoList}
     </div>
   );
 };
