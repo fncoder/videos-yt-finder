@@ -11,17 +11,19 @@ class NavigateContainer extends React.Component {
   }
 
   onClick(e) {
-    const { searchValue, fetchVideosSucces, fetchPage } = this.props;
+    const {
+      searchValue, fetchVideosSucces, pageFilter, fetchPage,
+    } = this.props;
 
     if (e.target.className.indexOf('arrow-right') !== -1) {
       const nextPageToken = fetchVideosSucces.nextPageToken;
-      fetchPage(searchValue, nextPageToken);
+      fetchPage(searchValue, nextPageToken, pageFilter);
     }
 
     if (e.target.className.indexOf('arrow-left') !== -1) {
       const prevPageToken = fetchVideosSucces.prevPageToken;
       if (prevPageToken) {
-        fetchPage(searchValue, prevPageToken);
+        fetchPage(searchValue, prevPageToken, pageFilter);
       }
     }
   }
@@ -36,10 +38,11 @@ class NavigateContainer extends React.Component {
 const mapStateToProps = state => ({
   searchValue: state.fetchSearchValue,
   fetchVideosSucces: state.fetchVideosSuccess,
+  pageFilter: state.fetchPageFilter,
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchPage: (searchValue, pageToken) => dispatch(fetchPage(searchValue, pageToken)),
+  fetchPage: (searchValue, pageToken, pageFilter) => dispatch(fetchPage(searchValue, pageToken, pageFilter)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(NavigateContainer);
