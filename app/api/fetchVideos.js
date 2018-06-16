@@ -1,4 +1,4 @@
-import { fetchVideosSuccess } from 'actions';
+import { fetchVideosRequest, fetchVideosSuccess } from 'actions';
 
 const fetchVideos = searchValue => (dispatch) => {
   let url;
