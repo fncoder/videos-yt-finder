@@ -16,7 +16,6 @@ class MainContainer extends React.Component {
   }
 }
 
-
 const mapDispatchToProps = dispatch => ({
   fetchVideos: () => dispatch(fetchVideos()),
 });
