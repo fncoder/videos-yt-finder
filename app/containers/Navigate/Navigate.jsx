@@ -12,18 +12,18 @@ class NavigateContainer extends React.Component {
 
   onClick(e) {
     const {
-      searchValue, fetchVideosSucces, pageFilter, fetchPage,
+      searchValue, fetchVideosSucces, filter, fetchPage,
     } = this.props;
 
     if (e.target.className.indexOf('arrow-right') !== -1) {
       const nextPageToken = fetchVideosSucces.nextPageToken;
-      fetchPage(searchValue, nextPageToken, pageFilter);
+      fetchPage(searchValue, nextPageToken, filter);
     }
 
     if (e.target.className.indexOf('arrow-left') !== -1) {
       const prevPageToken = fetchVideosSucces.prevPageToken;
       if (prevPageToken) {
-        fetchPage(searchValue, prevPageToken, pageFilter);
+        fetchPage(searchValue, prevPageToken, filter);
       }
     }
   }
@@ -38,7 +38,7 @@ class NavigateContainer extends React.Component {
 const mapStateToProps = state => ({
   searchValue: state.fetchSearchValue,
   fetchVideosSucces: state.fetchVideosSuccess,
-  pageFilter: state.fetchPageFilter,
+  filter: state.fetchPageFilter,
 });
 
 const mapDispatchToProps = dispatch => ({

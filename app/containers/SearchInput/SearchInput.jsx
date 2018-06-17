@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addSearchValue, fetchSearchValue } from 'actions';
+import { addSearchValue, fetchSearchValue, fetchPageFilter } from 'actions';
 import { fetchVideos } from 'api';
 import SearchInput from 'components/SearchInput';
 
@@ -18,16 +18,24 @@ class SearchInputContainer extends React.Component {
   }
 
   onClick() {
-    const { searchValue, fetchVideos, fetchSearchValue } = this.props;
+    const {
+      searchValue, fetchVideos, fetchSearchValue, fetchPageFilter,
+    } = this.props;
+
     fetchSearchValue(searchValue);
     fetchVideos(searchValue);
+    fetchPageFilter('');
   }
 
   onKeyDown(e) {
-    const { searchValue, fetchVideos, fetchSearchValue } = this.props;
+    const {
+      searchValue, fetchVideos, fetchSearchValue, fetchPageFilter,
+    } = this.props;
+
     if (e.keyCode === 13 && searchValue.length !== '') {
       fetchSearchValue(searchValue);
       fetchVideos(searchValue);
+      fetchPageFilter('');
     }
   }
 
@@ -50,6 +58,7 @@ const mapDispatchToProps = dispatch => ({
   onChange: value => dispatch(addSearchValue(value)),
   fetchVideos: value => dispatch(fetchVideos(value)),
   fetchSearchValue: value => dispatch(fetchSearchValue(value)),
+  fetchPageFilter: value => dispatch(fetchPageFilter(value)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SearchInputContainer);
