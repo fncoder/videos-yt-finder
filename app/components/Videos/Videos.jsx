@@ -5,9 +5,8 @@ const Videos = ({ items, onClick }) => {
   let videoList = [];
 
   if (items) {
-    console.log(items);
     videoList = items.map((value, index) => (
-      <li onClick={onClick} id={index + 1} className={`video video${index + 1}`}>
+      <li key={index} onClick={onClick} id={index + 1} className={`video video${index + 1}`}>
         <div className="video-content">
           <figure onClick={onClick} className="video-media">
             <img className="video-media__icon" src={value.snippet.thumbnails.medium.url} />
