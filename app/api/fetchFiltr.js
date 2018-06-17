@@ -1,8 +1,12 @@
-import { fetchVideosSuccess } from 'actions';
+import {
+  fetchVideosRequest,
+  fetchVideosSuccess,
+  fetchVideosFailure,
+} from 'actions';
 
 const fetchFiltr = (searchValue, filtr) => (dispatch) => {
+  dispatch(fetchVideosRequest());
   let url;
-
   if (filtr.order === 'date') {
     url = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${searchValue}&type=video&maxResults=10&order=date&key=AIzaSyDwn1T4zBSOOn9ZCY1eo8gdOhO1ONsk4zA`;
   } else if (filtr.order === 'rating') {
@@ -29,7 +33,7 @@ const fetchFiltr = (searchValue, filtr) => (dispatch) => {
   return fetch(url)
     .then(res => res.json())
     .then(res => dispatch(fetchVideosSuccess(res)))
-    .catch(err => alert('Something wrong, try again'));
+    .catch(err => dispatch(fetchVideosFailure(err)));
 };
 
 export default fetchFiltr;
