@@ -1,7 +1,7 @@
 import React from 'react';
 import SingleVideo from 'components/SingleVideo';
 
-const Videos = ({ items, onClick }) => {
+const Videos = ({ items, onClick, playerVideoID }) => {
   let videoList = [];
 
   if (items) {
@@ -17,7 +17,7 @@ const Videos = ({ items, onClick }) => {
             <p className="video-description">{value.snippet.description}</p>
           </div>
         </div>
-        <SingleVideo playerID={index + 1} videoID={value.id.videoId} />
+        {playerVideoID && index + 1 === playerVideoID ? <SingleVideo playerID={index + 1} videoID={value.id.videoId} /> : false }
       </li>
     ));
   }
