@@ -1,0 +1,16 @@
+.animate-text{
+height: 25px;
+overflow:hidden;
+position: relative;
+top: 10px;
+padding-top: 5px;
+}
+
+.logo__text{
+position: relative;
+animation: animate-text 3s ease infinite;
+
+  &:nth-child(2){
+  margin-top: 16px;
+  }
+}

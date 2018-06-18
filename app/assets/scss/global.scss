@@ -4,10 +4,12 @@
 @import './variables.scss';
 @import './typography.scss';
 @import './settings.scss';
+@import './animations.scss';
 
 //===== COMPONENTS =====//
 
 @import '../../components/Header/styles.scss';
+@import '../../components/Logo/styles.scss';
 @import '../../components/SearchInput/styles.scss';
 @import '../../components/Main/styles.scss';
 @import '../../components/Videos/styles.scss';
