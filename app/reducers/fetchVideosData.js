@@ -8,7 +8,7 @@ const initialState = {
   isFetching: false,
 };
 
-const fetchVideo = (state, action) => {
+const fetchVideoData = (state, action) => {
   if (state === undefined) {
     return initialState;
   }
@@ -19,10 +19,10 @@ const fetchVideo = (state, action) => {
     case FETCH_VIDEOS_SUCCESS:
       return Object.assign({ isFetch: true }, action.payload);
     case FETCH_VIDEOS_FAILURE:
-      return Object.assign({ isFetch: true, error: action.payload }, null);
+      return Object.assign({ isError: true }, action.payload);
     default:
       return state;
   }
 };
 
-export default fetchVideo;
+export default fetchVideoData;

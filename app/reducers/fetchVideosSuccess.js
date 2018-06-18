@@ -2,7 +2,7 @@ import { FETCH_VIDEOS_SUCCESS } from 'constants/actionTypes.js';
 
 const fetchVideosSuccess = (state, action) => {
   if (state === undefined) {
-    return [];
+    return false;
   }
 
   switch (action.type) {

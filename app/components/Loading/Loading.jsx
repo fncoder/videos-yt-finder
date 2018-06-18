@@ -3,8 +3,7 @@ import React from 'react';
 const Loading = ({ fetchStatus }) => {
   if (fetchStatus.isFetching) {
     return <div className="loader" />;
-  }
-  if (fetchStatus.isFetch) {
+  } else if (fetchStatus.isFetch) {
     const hideToggle = 'hide-loader';
     return <div className={`loader ${hideToggle}`} />;
   }

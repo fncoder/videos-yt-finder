@@ -94,7 +94,6 @@ class FiltrContainer extends React.Component {
 
 const mapStateToProps = state => ({
   searchValue: state.fetchSearchValue,
-  pageFilter: state.fetchPageFilter,
 });
 
 const mapDispatchToProps = dispatch => ({
