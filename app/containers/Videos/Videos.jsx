@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { addPlayerVideo } from 'actions';
 import Videos from 'components/Videos';
 
 class VideosContainer extends React.Component {
@@ -10,29 +11,20 @@ class VideosContainer extends React.Component {
   }
 
   onClick(e) {
-    const playerVideo = document.querySelectorAll('.playerVideo');
-
-    for (let i = 0; i < playerVideo.length; i++) {
-      playerVideo[i].style.display = 'none';
-    }
+    const { addPlayerVideo } = this.props;
 
     if (e.target.className === 'video-media__icon' || e.target.className === 'video-title') {
-      playerVideo[e.currentTarget.id - 1].style.display = 'block';
+      addPlayerVideo(parseFloat(e.currentTarget.id));
     }
   }
 
   render() {
-    const playerVideo = document.querySelectorAll('.playerVideo');
-
-    for (let i = 0; i < playerVideo.length; i++) {
-      playerVideo[i].style.display = 'none';
-    }
-
-    const { items } = this.props;
+    const { items, playerVideoID, addPlayerVideo } = this.props;
     return (
       <Videos
         items={items}
         onClick={this.onClick}
+        playerVideoID={playerVideoID}
       />
     );
   }
@@ -40,6 +32,11 @@ class VideosContainer extends React.Component {
 
 const mapStateToProps = state => ({
   items: state.fetchVideosSuccess.items,
+  playerVideoID: state.addPlayerVideo,
 });
 
-export default connect(mapStateToProps, null)(VideosContainer);
+const mapDispatchToProps = dispatch => ({
+  addPlayerVideo: value => dispatch(addPlayerVideo(value)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(VideosContainer);
