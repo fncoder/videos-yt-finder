@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { addPlayerVideo } from 'actions';
 import { fetchPage } from 'api';
 import Navigate from 'components/Navigate';
 
@@ -12,18 +13,20 @@ class NavigateContainer extends React.Component {
 
   onClick(e) {
     const {
-      searchValue, fetchVideosSucces, filter, fetchPage,
+      searchValue, fetchVideosSucces, filter, fetchPage, addPlayerVideo,
     } = this.props;
 
     if (e.target.className.indexOf('arrow-right') !== -1) {
       const nextPageToken = fetchVideosSucces.nextPageToken;
       fetchPage(searchValue, nextPageToken, filter);
+      addPlayerVideo(0);
     }
 
     if (e.target.className.indexOf('arrow-left') !== -1) {
       const prevPageToken = fetchVideosSucces.prevPageToken;
       if (prevPageToken) {
         fetchPage(searchValue, prevPageToken, filter);
+        addPlayerVideo(0);
       }
     }
   }
@@ -42,7 +45,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchPage: (searchValue, pageToken, pageFilter) => dispatch(fetchPage(searchValue, pageToken, pageFilter)),
+  fetchPage: (searchValue, pageToken, filter) => dispatch(fetchPage(searchValue, pageToken, filter)),
+  addPlayerVideo: value => dispatch(addPlayerVideo(value)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(NavigateContainer);
