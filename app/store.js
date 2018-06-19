@@ -5,8 +5,4 @@ import * as reducers from './reducers';
 const merge = combineReducers(reducers);
 const store = createStore(merge, applyMiddleware(thunk));
 
-store.subscribe(() => {
-  console.log(store.getState());
-});
-
 export default store;
