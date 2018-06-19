@@ -1,5 +1,5 @@
 {
-  "name": "videos-yt-finder",
+  "name": "youtube-videos-finder",
   "version": "1.0.0",
   "main": "webpack.config.js",
   "scripts": {

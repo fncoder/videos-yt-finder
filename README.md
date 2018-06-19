@@ -1,5 +1,6 @@
-# React app
+# YouTube Videos Finder
 
-> Lorem ipsum
+> Stack: React, Redux and Express
 
-[See Online](https://example.com/)
+
+[See Online](https://youtube-videos-finder.herokuapp.com/)
