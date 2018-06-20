@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { addPlayerVideo, showNavigate } from 'actions';
 import Videos from 'components/Videos';
-import VideosNotFound from 'components/VideosNotFound';
+import Error from 'components/Error';
 
 class VideosContainer extends React.Component {
   constructor() {
@@ -24,7 +24,10 @@ class VideosContainer extends React.Component {
     const { showNavigate } = this.props;
     if (items && items.length === 0) {
       showNavigate(false);
-      return <VideosNotFound />;
+      return (<Error
+        errorTitle="Ups!"
+        errorText="Not found videos"
+      />);
     }
     showNavigate(true);
     return videosList;
