@@ -21,7 +21,7 @@ class VideosContainer extends React.Component {
   }
 
   loadVideosSystem(items, videosList) {
-    const { showNavigate } = this.props;
+    const { showNavigate, videosData } = this.props;
     if (items && items.length === 0) {
       showNavigate(false);
       return (<Error
@@ -29,6 +29,15 @@ class VideosContainer extends React.Component {
         errorText="Not found videos"
       />);
     }
+
+    if (videosData.isError) {
+      showNavigate(false);
+      return (<Error
+        errorTitle="Server Error"
+        errorText="Please try again"
+      />);
+    }
+
     showNavigate(true);
     return videosList;
   }
@@ -49,6 +58,7 @@ class VideosContainer extends React.Component {
 const mapStateToProps = state => ({
   items: state.fetchVideosSuccess.items,
   playerVideoID: state.addPlayerVideo,
+  videosData: state.fetchVideosData,
 });
 
 const mapDispatchToProps = dispatch => ({
