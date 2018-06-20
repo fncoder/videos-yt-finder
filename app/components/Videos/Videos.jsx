@@ -1,6 +1,5 @@
 import React from 'react';
 import SingleVideo from 'components/SingleVideo';
-import VideosNotFound from 'components/VideosNotFound';
 
 const Videos = ({
   items, onClick, playerVideoID, loadVideosSystem,
