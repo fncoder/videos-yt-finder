@@ -1,11 +1,13 @@
 import React from 'react';
 import SingleVideo from 'components/SingleVideo';
+import VideosNotFound from 'components/VideosNotFound';
 
-const Videos = ({ items, onClick, playerVideoID }) => {
-  let videoList = [];
-
+const Videos = ({
+  items, onClick, playerVideoID, loadVideosSystem,
+}) => {
+  let videosList = [];
   if (items) {
-    videoList = items.map((value, index) => (
+    videosList = items.map((value, index) => (
       <li key={index} onClick={onClick} id={index + 1} className={`video video${index + 1}`}>
         <div className="video-content">
           <figure onClick={onClick} className="video-media">
@@ -23,7 +25,7 @@ const Videos = ({ items, onClick, playerVideoID }) => {
   }
   return (
     <div className="video-list">
-      {videoList}
+      {loadVideosSystem(items, videosList)}
     </div>
   );
 };

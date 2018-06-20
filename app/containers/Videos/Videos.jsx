@@ -1,13 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addPlayerVideo } from 'actions';
+import { addPlayerVideo, showNavigate } from 'actions';
 import Videos from 'components/Videos';
+import VideosNotFound from 'components/VideosNotFound';
 
 class VideosContainer extends React.Component {
   constructor() {
     super();
 
     this.onClick = this.onClick.bind(this);
+    this.loadVideosSystem = this.loadVideosSystem.bind(this);
   }
 
   onClick(e) {
@@ -18,6 +20,16 @@ class VideosContainer extends React.Component {
     }
   }
 
+  loadVideosSystem(items, videosList) {
+    const { showNavigate } = this.props;
+    if (items && items.length === 0) {
+      showNavigate(false);
+      return <VideosNotFound />;
+    }
+    showNavigate(true);
+    return videosList;
+  }
+
   render() {
     const { items, playerVideoID, addPlayerVideo } = this.props;
     return (
@@ -25,6 +37,7 @@ class VideosContainer extends React.Component {
         items={items}
         onClick={this.onClick}
         playerVideoID={playerVideoID}
+        loadVideosSystem={this.loadVideosSystem}
       />
     );
   }
@@ -37,6 +50,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   addPlayerVideo: value => dispatch(addPlayerVideo(value)),
+  showNavigate: value => dispatch(showNavigate(value)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(VideosContainer);

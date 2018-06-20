@@ -5,8 +5,9 @@ import Main from 'components/Main';
 
 class MainContainer extends React.Component {
   render() {
+    const { showNavigate } = this.props;
     return (
-      <Main />
+      <Main showNavigate={showNavigate} />
     );
   }
 
@@ -16,8 +17,12 @@ class MainContainer extends React.Component {
   }
 }
 
+const mapStateToProps = state => ({
+  showNavigate: state.showNavigate,
+});
+
 const mapDispatchToProps = dispatch => ({
   fetchVideos: () => dispatch(fetchVideos()),
 });
 
-export default connect(null, mapDispatchToProps)(MainContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(MainContainer);

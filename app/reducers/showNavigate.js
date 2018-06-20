@@ -2,7 +2,7 @@ import { SHOW_NAVIGATE } from 'constants/actionTypes.js';
 
 const showNavigate = (state, action) => {
   if (state === undefined) {
-    return false;
+    return true;
   }
 
   switch (action.type) {
